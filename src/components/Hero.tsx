@@ -36,7 +36,7 @@ const Hero = () => {
           <div className="space-y-6">
             <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
               <span className="bg-gradient-to-r from-blue-200 via-white to-cyan-200 bg-clip-text text-transparent">
-                Your group chat trip, booked in one conversation.
+                Your trip finally made it out of the group chat.
               </span>
             </h1>
             
