@@ -17,18 +17,6 @@ const Hero = () => {
         />
       </div>
       
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 animate-float">
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
-          <MessageCircle className="w-8 h-8 text-white" />
-        </div>
-      </div>
-      
-      <div className="absolute bottom-32 right-16 animate-float" style={{ animationDelay: '1s' }}>
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
-          <Sparkles className="w-8 h-8 text-white" />
-        </div>
-      </div>
       
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
