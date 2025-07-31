@@ -6,78 +6,78 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-primary p-2.5 rounded-2xl shadow-lg">
-              <Sparkles className="w-5 h-5 text-white" />
+          <div className="flex items-center space-x-2.5">
+            <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/20">
+              <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-white">
               Traviso AI
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             <a 
               href="#how-it-works" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
+              className="text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 relative group"
             >
               How it Works
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a 
               href="#creators" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
+              className="text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 relative group"
             >
               For Creators
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a 
               href="#features" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
+              className="text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 relative group"
             >
               Features
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl hover:bg-muted/80 transition-colors duration-200"
+            className="md:hidden p-2 rounded-xl hover:bg-white/20 transition-colors duration-200"
           >
-            <div className="relative w-6 h-6">
-              <span className={`absolute block h-0.5 w-6 bg-foreground transform transition-all duration-300 ${isOpen ? 'rotate-45 top-3' : 'top-1'}`} />
-              <span className={`absolute block h-0.5 w-6 bg-foreground transform transition-all duration-300 ${isOpen ? 'opacity-0' : 'top-3'}`} />
-              <span className={`absolute block h-0.5 w-6 bg-foreground transform transition-all duration-300 ${isOpen ? '-rotate-45 top-3' : 'top-5'}`} />
+            <div className="relative w-5 h-5">
+              <span className={`absolute block h-0.5 w-5 bg-white transform transition-all duration-300 ${isOpen ? 'rotate-45 top-2.5' : 'top-1'}`} />
+              <span className={`absolute block h-0.5 w-5 bg-white transform transition-all duration-300 ${isOpen ? 'opacity-0' : 'top-2.5'}`} />
+              <span className={`absolute block h-0.5 w-5 bg-white transform transition-all duration-300 ${isOpen ? '-rotate-45 top-2.5' : 'top-4'}`} />
             </div>
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-border/50 bg-background/98 backdrop-blur-md">
-            <div className="px-6 py-8 space-y-6">
+          <div className="md:hidden border-t border-white/10 bg-black/20 backdrop-blur-md">
+            <div className="px-6 py-6 space-y-5">
               <a 
                 href="#how-it-works" 
-                className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="block text-sm font-medium text-white/90 hover:text-white transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 How it Works
               </a>
               <a 
                 href="#creators" 
-                className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="block text-sm font-medium text-white/90 hover:text-white transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 For Creators
               </a>
               <a 
                 href="#features" 
-                className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="block text-sm font-medium text-white/90 hover:text-white transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Features
