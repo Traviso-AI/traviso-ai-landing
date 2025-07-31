@@ -41,14 +41,6 @@ const CTA = () => {
               Get Early Access
               <ArrowRight className="w-6 h-6 ml-3" />
             </Button>
-            
-            <Button 
-              variant="premium" 
-              size="lg" 
-              className="text-lg px-12 py-6 h-auto bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30"
-            >
-              Learn More
-            </Button>
           </div>
           
           <div className="mt-12 pt-8 border-t border-white/20">
