@@ -59,7 +59,7 @@ const CreatorEconomy = () => {
               </div>
             </div>
 
-            <Button variant="creator" size="lg" className="text-lg px-8 py-6 h-auto">
+            <Button variant="creator" size="default" className="px-6 py-3">
               Start Creating Today
             </Button>
           </div>
