@@ -7,9 +7,9 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-12">
-          {/* Logo */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-12 w-full">
+          {/* Logo - Left Side */}
           <a href="/" className="flex items-center space-x-2.5 hover:opacity-80 transition-opacity duration-200 cursor-pointer">
             <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/20">
               <Sparkles className="w-4 h-4 text-white" />
@@ -19,8 +19,8 @@ const Navigation = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-7">
+          {/* Desktop Navigation - Right Side */}
+          <div className="hidden md:flex items-center space-x-8 ml-auto">
             <a 
               href="#how-it-works" 
               className="text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 relative group"
