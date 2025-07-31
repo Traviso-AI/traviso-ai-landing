@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero-beach-palms.jpg";
+import heroImage from "@/assets/hero-beach-view-palms.jpg";
 
 const Hero = () => {
   return (
