@@ -28,12 +28,6 @@ const Navigation = () => {
             <a href="#features" className="text-foreground hover:text-primary transition-colors">
               Features
             </a>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              Sign In
-            </Button>
-            <Button variant="hero" className="px-6">
-              Get Started
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -70,14 +64,6 @@ const Navigation = () => {
               >
                 Features
               </a>
-              <div className="flex flex-col space-y-3 pt-4 border-t border-border">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-                  Sign In
-                </Button>
-                <Button variant="hero">
-                  Get Started
-                </Button>
-              </div>
             </div>
           </div>
         )}
