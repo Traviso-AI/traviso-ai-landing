@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-tropical-beach-palms.jpg";
@@ -44,22 +45,13 @@ const Hero = () => {
             Publish your own and earn from every booking.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex justify-center">
             <Button 
               variant="hero" 
               size="lg" 
               className="text-lg px-12 py-6 h-auto group"
             >
-              <MessageCircle className="w-6 h-6 mr-3 group-hover:animate-pulse" />
-              Start Planning with AI
-            </Button>
-            
-            <Button 
-              variant="premium" 
-              size="lg" 
-              className="text-lg px-12 py-6 h-auto bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30"
-            >
-              Become a Creator
+              JOIN WAITLIST
             </Button>
           </div>
         </div>
