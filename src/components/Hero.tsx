@@ -42,9 +42,7 @@ const Hero = () => {
             
             <div className="max-w-4xl mx-auto">
               <p className="text-xl md:text-2xl text-white/95 leading-relaxed font-light">
-                Chat with our AI to plan and book complete trips. Discover creator itineraries. 
-                <br className="hidden md:block" />
-                Publish your own and earn from every booking.
+                Traviso AI plans your full trip through chat—from flights and hotels to local events. Or book influencer-curated itineraries. You can even publish your own and earn.
               </p>
             </div>
           </div>
