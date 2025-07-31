@@ -51,7 +51,7 @@ const Hero = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-xl px-16 py-8 h-auto font-bold tracking-wide shadow-2xl hover:shadow-blue-500/25 transition-all duration-500"
+              className="text-lg px-10 py-4 h-auto font-semibold tracking-wide shadow-xl hover:shadow-blue-500/25 transition-all duration-500"
             >
               JOIN WAITLIST
             </Button>
