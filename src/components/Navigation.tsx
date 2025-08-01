@@ -8,13 +8,13 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-12">
           {/* Logo - Far Left */}
-          <a href="/" className="flex items-center space-x-2.5 hover:opacity-80 transition-opacity duration-200 cursor-pointer flex-shrink-0">
-            <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/20">
-              <Sparkles className="w-4 h-4 text-white" />
+          <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200 cursor-pointer flex-shrink-0">
+            <div className="bg-white/20 backdrop-blur-sm p-1.5 rounded-lg shadow-lg border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-white" />
             </div>
-            <span className="text-xl font-bold text-white">
+            <span className="text-lg font-bold text-white">
               Traviso AI
             </span>
           </a>
