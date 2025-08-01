@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Bot, Calendar, CreditCard, Shield, Zap, Globe2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const features = [
   {
@@ -35,6 +37,18 @@ const features = [
 ];
 
 const Features = () => {
+  const [api, setApi] = useState<any>(null);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   return (
     <section id="features" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -47,19 +61,31 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, index) => (
-            <Card 
-              key={index} 
-              className="p-8 bg-gradient-card border-border hover:shadow-card transition-all duration-300 group hover:scale-105"
-            >
-              <div className="bg-gradient-primary p-4 rounded-2xl w-fit mb-6 group-hover:shadow-glow transition-all duration-300">
-                <feature.icon className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-            </Card>
-          ))}
+        <div className="relative">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {features.map((feature, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-8 bg-gradient-card border-border hover:shadow-card transition-all duration-300 group hover:scale-105 h-full">
+                    <div className="bg-gradient-primary p-4 rounded-2xl w-fit mb-6 group-hover:shadow-glow transition-all duration-300">
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-4">{feature.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </div>
     </section>
