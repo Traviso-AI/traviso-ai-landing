@@ -50,7 +50,7 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20">
           {steps.map((step, index) => (
             <Card key={index} className="p-8 bg-gradient-card border-border hover:shadow-card transition-all duration-300 group hover:scale-105">
               <div className="bg-gradient-primary p-4 rounded-2xl w-fit mb-6 group-hover:shadow-glow transition-all duration-300">
@@ -62,7 +62,7 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center group">
               <div className="bg-accent/20 p-6 rounded-2xl w-fit mx-auto mb-4 group-hover:bg-accent/30 transition-colors">

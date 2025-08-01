@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-12">
+        <div className="flex items-center justify-between h-16">
           {/* Logo - Far Left */}
           <a href="/" className="flex items-center space-x-2.5 hover:opacity-80 transition-opacity duration-200 cursor-pointer flex-shrink-0">
             <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl shadow-lg border border-white/20">

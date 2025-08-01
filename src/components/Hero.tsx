@@ -22,14 +22,14 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <div className="animate-fade-in space-y-8">
           <div className="space-y-6">
-            <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
               <span className="bg-gradient-to-r from-blue-200 via-white to-cyan-200 bg-clip-text text-transparent">
                 Your trip finally made it out of the group chat.
               </span>
             </h1>
             
             <div className="max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl text-white/95 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed font-light">
                 Automate planning with AI. Book creator-curated itineraries. Or publish your own and earn.
               </p>
             </div>

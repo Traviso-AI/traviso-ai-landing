@@ -13,7 +13,7 @@ const CreatorEconomy = () => {
   return (
     <section id="creators" className="py-24 bg-gradient-card">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
               Turn Your Travel Passion Into 
