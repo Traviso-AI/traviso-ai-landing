@@ -67,6 +67,7 @@ const Features = () => {
             opts={{
               align: "start",
               loop: true,
+              slidesToScroll: 1,
             }}
             className="w-full"
           >
