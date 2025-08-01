@@ -35,8 +35,8 @@ const CTA = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               variant="hero" 
-              size="default" 
-              className="px-8 py-3 bg-white text-primary hover:bg-white/90 transform hover:scale-105"
+              size="lg" 
+              className="px-10 py-4 bg-white text-primary hover:bg-white/90 transform hover:scale-105"
             >
               Get Early Access
               <ArrowRight className="w-5 h-5 ml-2" />
