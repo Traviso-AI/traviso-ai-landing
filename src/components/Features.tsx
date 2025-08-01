@@ -84,8 +84,8 @@ const Features = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="flex -left-12 bg-white/90 hover:bg-white border shadow-lg" />
+            <CarouselNext className="flex -right-12 bg-white/90 hover:bg-white border shadow-lg" />
           </Carousel>
         </div>
       </div>
