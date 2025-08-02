@@ -4,19 +4,21 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-1 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-3 mb-6">
-              <div className="bg-gradient-primary p-2 rounded-xl">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold">Traviso AI</span>
+        {/* Brand - Full Width */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <div className="bg-gradient-primary p-2 rounded-xl">
+              <Sparkles className="w-6 h-6 text-white" />
             </div>
-            <p className="text-background/70 leading-relaxed">
-              Revolutionizing travel through AI, social discovery, and the creator economy.
-            </p>
+            <span className="text-2xl font-bold">Traviso AI</span>
           </div>
+          <p className="text-background/70 leading-relaxed max-w-2xl mx-auto">
+            Revolutionizing travel through AI, social discovery, and the creator economy.
+          </p>
+        </div>
+
+        {/* Footer Links */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center md:text-left">
 
           {/* Product */}
           <div>
