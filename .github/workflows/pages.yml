@@ -25,13 +25,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
 
       - name: Install deps
         run: npm ci
 
       - name: Build
         run: npm run build
+
+      # SPA fallback so client-side routes don’t 404 on GitHub Pages
+      - name: Add 404.html fallback
+        run: cp dist/index.html dist/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
