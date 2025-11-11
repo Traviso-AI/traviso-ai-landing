@@ -4,9 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  // IMPORTANT: while using the GitHub Pages temporary URL
-  // keep this base EXACTLY as your repo name with leading/trailing slashes.
-  base: "/traviso-ai-landing/",
+  // IMPORTANT: no "base" here for Vercel
   server: {
     host: "::",
     port: 8080,
