@@ -55,7 +55,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-background/20">
           <p className="text-background/70 text-sm mb-4 md:mb-0">
-            © 2024 Traviso AI. All rights reserved.
+            © 2025 Traviso AI. All rights reserved.
           </p>
           
           <div className="flex space-x-6">
