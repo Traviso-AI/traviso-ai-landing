@@ -36,13 +36,15 @@ const Hero = () => {
           </div>
           
           <div className="pt-4">
+          <a href="https://app.traviso.ai/" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="hero" 
               size="lg" 
               className="text-lg px-10 py-4 h-auto font-semibold tracking-wide shadow-xl hover:shadow-blue-500/25 transition-all duration-500"
             >
-              JOIN WAITLIST
+              START EXPLORING
             </Button>
+          </a>
           </div>
         </div>
       </div>
