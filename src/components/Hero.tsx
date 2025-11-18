@@ -30,7 +30,7 @@ const Hero = () => {
             
             <div className="max-w-4xl mx-auto">
               <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed font-light">
-                Turn conversations into trips and earn from the ones you create.
+                Turn conversations into trips and earn from the ones you create
               </p>
             </div>
           </div>
