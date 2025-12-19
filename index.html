@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Page Title -->
   <title>Traviso AI</title>
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Traviso AI — The World’s First Social AI Travel Concierge." />
-  <meta name="author" content="Traviso AI" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Traviso AI" />
-  <meta property="og:description" content="The World’s First Social AI Travel Concierge." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og-image.png" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@travisoai" />
-  <meta name="twitter:image" content="/og-image.png" />
-
-  <!-- OPTIONAL: replace favicon -->
-  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <meta name="description" content="Traviso AI — The World's First Social AI Travel Concierge." />
+  <!-- Fonts: DM Sans + SF Pro (Apple UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <!-- SF Pro font fallback - using system fonts for Apple devices -->
+  <style>
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: local('SF Pro Display'), local('-apple-system'), local('BlinkMacSystemFont');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'SF Pro Text';
+      src: local('SF Pro Text'), local('-apple-system'), local('BlinkMacSystemFont');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
+

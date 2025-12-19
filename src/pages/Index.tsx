@@ -1,23 +1,22 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import CreatorEconomy from "@/components/CreatorEconomy";
-import Features from "@/components/Features";
-// import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+import Navigation from "../components/Navigation";
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import TopCreatorsTrips from "../components/TopCreatorsTrips";
+import BeforeFooter from "../components/BeforeFooter";
+import Footer from "../components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <HowItWorks />
-      <CreatorEconomy />
       <Features />
-      {/* <CTA /> */}
+      <TopCreatorsTrips />
+      <BeforeFooter />
       <Footer />
     </div>
   );
 };
 
 export default Index;
+
