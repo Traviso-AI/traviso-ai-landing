@@ -41,7 +41,7 @@ const Hero = () => {
     <section className="relative h-screen flex items-start justify-center overflow-hidden bg-[#F6F9FE]">
       {/* Background video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
+        className="absolute inset-0 w-full h-full object-cover opacity-15 z-0"
         style={{ transform: 'scaleX(-1)' }}
         autoPlay
         muted
