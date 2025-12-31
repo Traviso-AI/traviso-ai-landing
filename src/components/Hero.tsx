@@ -47,7 +47,7 @@ const Hero = () => {
         muted
         loop
         playsInline
-        src="/images/twoway_movingbg.mp4"
+        src="/images/twoway_movingbg_compressed.mp4"
       />
       
       {/* LiquidEther background effect - Temporarily disabled */}
