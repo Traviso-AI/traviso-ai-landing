@@ -42,12 +42,12 @@ const Hero = () => {
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-15 z-0"
-        style={{ transform: 'scaleX(-1)' }}
+        style={{ transform: 'scale(1.25)' }}
         autoPlay
         muted
         loop
         playsInline
-        src="/images/moving_bg.mp4"
+        src="/images/twoway_movingbg.mp4"
       />
       
       {/* LiquidEther background effect - Temporarily disabled */}
@@ -104,7 +104,19 @@ const Hero = () => {
             />
             
             <div className="pt-2">
-              <a href="https://app.traviso.ai/" target="_blank" rel="noopener noreferrer">
+              <a 
+                href="#how-it-works"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('how-it-works');
+                  if (element) {
+                    const offset = 80; // Account for fixed nav height
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+              >
                 <Button 
                   size="lg" 
                   className="rounded-full px-8 py-6"

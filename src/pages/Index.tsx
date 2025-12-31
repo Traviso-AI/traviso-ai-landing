@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
+import InteractiveDemo from "../components/InteractiveDemo";
 import Features from "../components/Features";
 import TopCreatorsTrips from "../components/TopCreatorsTrips";
 import BeforeFooter from "../components/BeforeFooter";
@@ -10,8 +11,15 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <Features />
-      <TopCreatorsTrips />
+      <section id="how-it-works">
+        <InteractiveDemo />
+      </section>
+      <section id="features">
+        <Features />
+      </section>
+      <section id="top-trips">
+        <TopCreatorsTrips />
+      </section>
       <BeforeFooter />
       <Footer />
     </div>

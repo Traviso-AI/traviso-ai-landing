@@ -21,7 +21,14 @@ const Navigation = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/20' : 'bg-transparent border-b-0'}`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="/" className="flex items-center hover:opacity-80 transition-opacity duration-200 cursor-pointer flex-shrink-0">
+          <a 
+            href="/" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center hover:opacity-80 transition-opacity duration-200 cursor-pointer flex-shrink-0"
+          >
             <img 
               src="/images/logo.png" 
               alt="Traviso AI" 
@@ -32,23 +39,53 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8 flex-shrink-0">
             <a 
               href="#how-it-works" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('how-it-works');
+                if (element) {
+                  const offset = 80; // Account for fixed nav height
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+              }}
               className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 relative group"
             >
               How it Works
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
             </a>
             <a 
-              href="#creators" 
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 relative group"
-            >
-              For Creators
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-            </a>
-            <a 
               href="#features" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('features');
+                if (element) {
+                  const offset = 80; // Account for fixed nav height
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+              }}
               className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 relative group"
             >
               Features
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+            </a>
+            <a 
+              href="#top-trips" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('top-trips');
+                if (element) {
+                  const offset = 80; // Account for fixed nav height
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+              }}
+              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 relative group"
+            >
+              Top Trips
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
             </a>
           </div>
@@ -71,23 +108,53 @@ const Navigation = () => {
               <a 
                 href="#how-it-works" 
                 className="block text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOpen(false);
+                  const element = document.getElementById('how-it-works');
+                  if (element) {
+                    const offset = 80; // Account for fixed nav height
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
               >
                 How it Works
               </a>
               <a 
-                href="#creators" 
-                className="block text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                For Creators
-              </a>
-              <a 
                 href="#features" 
                 className="block text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOpen(false);
+                  const element = document.getElementById('features');
+                  if (element) {
+                    const offset = 80; // Account for fixed nav height
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
               >
                 Features
+              </a>
+              <a 
+                href="#top-trips" 
+                className="block text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOpen(false);
+                  const element = document.getElementById('top-trips');
+                  if (element) {
+                    const offset = 80; // Account for fixed nav height
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+              >
+                Top Trips
               </a>
             </div>
           </div>
