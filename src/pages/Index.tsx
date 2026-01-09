@@ -15,10 +15,10 @@ const Index = () => {
         <InteractiveDemo />
       </section>
       <section id="features">
-        <Features />
+      <Features />
       </section>
       <section id="top-trips">
-        <TopCreatorsTrips />
+      <TopCreatorsTrips />
       </section>
       <BeforeFooter />
       <Footer />

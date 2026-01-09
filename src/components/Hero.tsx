@@ -90,7 +90,7 @@ const Hero = () => {
                 animateBy="words"
                 direction="top"
                 as="span"
-                className="block"
+                className="block leading-[1.10]"
                 spanClassName="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent"
               />
             </h1>
@@ -131,7 +131,7 @@ const Hero = () => {
           <div className="flex justify-center md:justify-end items-center pt-12 md:pt-16 md:mt-[-50px]">
             <video
               ref={videoRef}
-              src="/images/nala_animation_with_phone_v3.mp4"
+              src="/images/nala_animation_with_phone_v4.mp4"
               autoPlay
               muted
               playsInline

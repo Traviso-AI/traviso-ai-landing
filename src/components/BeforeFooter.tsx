@@ -59,9 +59,9 @@ const BeforeFooter = () => {
               <div className="p-6 md:p-8">
                 <BlurText
                   text={benefit.title}
-                  delay={100 + (index * 50)}
+              delay={100 + (index * 50)}
                   animateBy="words"
-                  direction="top"
+              direction="top"
                   as="h3"
                   className="text-2xl md:text-3xl font-semibold text-black mb-3 font-sans tracking-tight"
                 />
@@ -75,7 +75,7 @@ const BeforeFooter = () => {
                   src={benefit.image}
                   alt={benefit.title}
                   className="w-full h-full object-cover"
-                />
+            />
               </div>
             </motion.div>
             );
