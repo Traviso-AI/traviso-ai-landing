@@ -58,24 +58,30 @@ const TopCreatorsTrips = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const autoScrollIntervalRef = useRef<number | null>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const checkScrollButtons = () => {
-    if (carouselRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
+    // Always show buttons for infinite scrolling
+    setCanScrollLeft(true);
+    setCanScrollRight(true);
   };
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     checkScrollButtons();
     const carousel = carouselRef.current;
     if (carousel) {
       carousel.addEventListener('scroll', checkScrollButtons);
       window.addEventListener('resize', checkScrollButtons);
       return () => {
+        window.removeEventListener('resize', checkMobile);
         carousel.removeEventListener('scroll', checkScrollButtons);
         window.removeEventListener('resize', checkScrollButtons);
       };
@@ -103,10 +109,13 @@ const TopCreatorsTrips = () => {
       const maxScroll = carousel.scrollWidth - carousel.clientWidth;
       const nextScroll = currentScroll + scrollAmount;
 
-      // If we've reached or passed the end, loop back to start
-      if (nextScroll >= maxScroll - 10) {
+      const realContentWidth = trips.length * (cardWidth + gap) - gap;
+      
+      // If we've reached or passed the end, scroll into duplicated cards (onScroll will loop it)
+      if (nextScroll >= realContentWidth - 10) {
+        // Continue scrolling into duplicated cards - onScroll handler will seamlessly loop
         carousel.scrollTo({
-          left: 0,
+          left: nextScroll,
           behavior: 'smooth'
         });
       } else {
@@ -128,18 +137,56 @@ const TopCreatorsTrips = () => {
   }, [isHovered]);
 
   const scroll = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.clientWidth / (window.innerWidth >= 768 ? 3 : 1);
-      const scrollAmount = cardWidth + 24; // card width + gap
-      const currentScroll = carouselRef.current.scrollLeft;
-      const targetScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
+    if (!carouselRef.current) return;
+    
+    const carousel = carouselRef.current;
+    const cardsPerView = isMobile ? 1 : 3;
+    const gap = isMobile ? 24 : 32;
+    const containerWidth = carousel.clientWidth;
+    const cardWidth = containerWidth / cardsPerView;
+    const scrollAmount = cardWidth + gap;
+    
+    const currentScroll = carousel.scrollLeft;
+    const realContentWidth = trips.length * (cardWidth + gap) - gap;
+    const duplicatedCardsWidth = cardsPerView * (cardWidth + gap);
+    
+    if (direction === 'right') {
+      const nextScroll = currentScroll + scrollAmount;
       
-      carouselRef.current.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth'
-      });
+      // If we've scrolled past the real content, loop to the start
+      if (nextScroll >= realContentWidth) {
+        // Calculate how far past we went
+        const overflow = nextScroll - realContentWidth;
+        // Jump to the start position plus the overflow
+        carousel.scrollTo({
+          left: overflow,
+          behavior: 'smooth'
+        });
+      } else {
+        carousel.scrollTo({
+          left: nextScroll,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Scrolling left
+      const nextScroll = currentScroll - scrollAmount;
+      
+      // If we'd go negative, loop to the end
+      if (nextScroll < 0) {
+        // Calculate position from the end
+        const positionFromEnd = Math.abs(nextScroll);
+        // Jump to the end minus the position
+        carousel.scrollTo({
+          left: realContentWidth - positionFromEnd,
+          behavior: 'smooth'
+        });
+      } else {
+        carousel.scrollTo({
+          left: nextScroll,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
@@ -167,22 +214,26 @@ const TopCreatorsTrips = () => {
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16 w-full">
+          <div className="flex justify-center">
         <BlurText
-            text="Top creators' trips."
+              text="Top creators' trips."
           delay={150}
           animateBy="words"
           direction="top"
           as="h2"
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-4 font-sans"
-          />
-          <BlurText
-            text="Inspired journeys from travel experts around the world."
-            delay={200}
-            animateBy="words"
-            direction="top"
-            className="text-lg md:text-xl text-black/60 font-sans"
-        />
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-4 font-sans justify-center"
+            />
+          </div>
+          <div className="flex justify-center">
+            <BlurText
+              text="Inspired journeys from travel experts around the world."
+              delay={200}
+              animateBy="words"
+              direction="top"
+              className="text-lg md:text-xl text-black/60 font-sans justify-center"
+            />
+          </div>
         </div>
         
         {/* Carousel container */}
@@ -191,27 +242,23 @@ const TopCreatorsTrips = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Left arrow button */}
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg border border-black/10 hover:border-black/20 transition-all duration-300 hover:shadow-xl"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-6 h-6 text-black" />
-            </button>
-          )}
+          {/* Left arrow button - always visible for infinite scroll */}
+          <button
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg border border-black/10 hover:border-black/20 transition-all duration-300 hover:shadow-xl"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-6 h-6 text-black" />
+          </button>
           
-          {/* Right arrow button */}
-          {canScrollRight && (
-            <button
-              onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg border border-black/10 hover:border-black/20 transition-all duration-300 hover:shadow-xl"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-6 h-6 text-black" />
-            </button>
-          )}
+          {/* Right arrow button - always visible for infinite scroll */}
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg border border-black/10 hover:border-black/20 transition-all duration-300 hover:shadow-xl"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-6 h-6 text-black" />
+          </button>
 
           {/* Scrollable carousel */}
           <div
@@ -221,7 +268,102 @@ const TopCreatorsTrips = () => {
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
             }}
+            onScroll={() => {
+              if (!carouselRef.current) return;
+              
+              const carousel = carouselRef.current;
+              const cardsPerView = isMobile ? 1 : 3;
+              const gap = isMobile ? 24 : 32;
+              const containerWidth = carousel.clientWidth;
+              const cardWidth = containerWidth / cardsPerView;
+              
+              // Calculate where the real content ends (before duplicated cards)
+              const realContentWidth = trips.length * (cardWidth + gap) - gap;
+              
+              // If scrolled into the duplicated cards at the end, instantly jump to corresponding position at start
+              if (carousel.scrollLeft >= realContentWidth) {
+                const offset = carousel.scrollLeft - realContentWidth;
+                // Use requestAnimationFrame to ensure smooth transition
+                requestAnimationFrame(() => {
+                  if (carouselRef.current) {
+                    carouselRef.current.scrollLeft = offset;
+                  }
+                });
+              }
+              
+              // If scrolled before start (shouldn't happen with new scroll logic, but just in case)
+              if (carousel.scrollLeft < 0) {
+                requestAnimationFrame(() => {
+                  if (carouselRef.current) {
+                    carouselRef.current.scrollLeft = realContentWidth + carousel.scrollLeft;
+                  }
+                });
+              }
+              
+              checkScrollButtons();
+            }}
           >
+            {/* Duplicate first few cards at the end for seamless loop */}
+            {trips.slice(0, isMobile ? 1 : 3).map((trip, index) => {
+              const cardRef = useRef<HTMLDivElement>(null);
+              const [isVisible, setIsVisible] = useState(false);
+
+              useEffect(() => {
+                if (!cardRef.current) return;
+                const observer = new IntersectionObserver(
+                  ([entry]) => {
+                    if (entry.isIntersecting) {
+                      setIsVisible(true);
+                      observer.unobserve(cardRef.current!);
+                    }
+                  },
+                  { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+                );
+                observer.observe(cardRef.current);
+                return () => observer.disconnect();
+              }, []);
+
+              return (
+                <motion.div
+                  key={`duplicate-${trip.id}`}
+                  ref={cardRef}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.15,
+                    ease: [0.25, 0.1, 0.25, 1]
+                  }}
+                  className="bg-white rounded-lg overflow-hidden border border-black/10 hover:border-black/20 transition-all duration-300 flex-shrink-0 w-[85vw] md:w-[calc(33.333%-16px)]"
+                >
+                  <div className="p-6 md:p-8">
+                    <div className="text-sm text-black/60 mb-2 font-sans">By {trip.creator}</div>
+                    <h3 className="text-xl md:text-2xl font-semibold text-black mb-3 font-sans tracking-tight">
+                      {trip.title}
+                    </h3>
+                    <p className="text-black/70 leading-relaxed font-sans text-base">
+                      {trip.description}
+                    </p>
+                  </div>
+                  <div className="w-full h-64 md:h-80 bg-gray-100 overflow-hidden relative">
+                    <img
+                      src={trip.image}
+                      alt={trip.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <button className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full p-2 hover:bg-black/80 transition-colors">
+                      <Heart className="w-4 h-4 text-white" />
+                    </button>
+                    <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2">
+                      {renderStars(trip.rating)}
+                    </div>
+                    <button className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm rounded-full p-2 hover:bg-black/80 transition-colors">
+                      <ChevronRight className="w-4 h-4 text-white" />
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
             {trips.map((trip, index) => {
             const cardRef = useRef<HTMLDivElement>(null);
             const [isVisible, setIsVisible] = useState(false);

@@ -273,42 +273,45 @@ const Features = () => {
             strokeDasharray="8 6"
             mask="url(#trailMask)"
           />
-          {/* Jet icon */}
+          {/* Trailhead icon */}
           {scrollProgress > 0 && (
             <g
               transform={`translate(${jetPosition.x}, ${jetPosition.y}) rotate(${jetPosition.angle})`}
             >
-              {/* Jet origami icon - paper airplane style - blue */}
-              <path
-                d="M -20 0 L 0 -12 L 15 0 L 0 12 Z"
-                fill="rgba(37, 99, 235, 0.7)"
-                stroke="rgba(37, 99, 235, 0.9)"
-                strokeWidth="1.5"
+              <image
+                href="/images/trailhead.png"
+                x="-20"
+                y="-20"
+                width="40"
+                height="40"
+                preserveAspectRatio="xMidYMid meet"
               />
-              {/* Jet center detail */}
-              <circle cx="-5" cy="0" r="2.5" fill="rgba(37, 99, 235, 0.5)" />
             </g>
           )}
         </svg>
       )}
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-        <BlurText
-            text="Everything you need."
-          delay={150}
-          animateBy="words"
-          direction="top"
-          as="h2"
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-4 font-sans"
-          />
-          <BlurText
-            text="All in one place."
-            delay={200}
-            animateBy="words"
-            direction="top"
-            className="text-lg md:text-xl text-black/60 font-sans"
-        />
+        <div className="text-center mb-12 md:mb-16 w-full">
+          <div className="flex justify-center">
+            <BlurText
+              text="Everything you need."
+              delay={150}
+              animateBy="words"
+              direction="top"
+              as="h2"
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-4 font-sans justify-center"
+            />
+          </div>
+          <div className="flex justify-center">
+            <BlurText
+              text="All in one place."
+              delay={200}
+              animateBy="words"
+              direction="top"
+              className="text-lg md:text-xl text-black/60 font-sans justify-center"
+            />
+          </div>
         </div>
         
         {/* OLD VERSION - Grid layout with cards (commented for potential revert) */}

@@ -5,22 +5,26 @@ const InteractiveDemo = () => {
     <section className="w-full bg-black py-16 md:py-24">
       {/* Heading with max-width container */}
       <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12">
-        <div className="text-center">
-          <BlurText
-            text="See how it works."
-            delay={150}
-            animateBy="words"
-            direction="top"
-            as="h2"
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 font-sans"
-          />
-          <BlurText
-            text="Experience Traviso AI in action."
-            delay={200}
-            animateBy="words"
-            direction="top"
-            className="text-lg md:text-xl text-white/60 font-sans"
-          />
+        <div className="text-center w-full">
+          <div className="flex justify-center">
+            <BlurText
+              text="See how it works."
+              delay={150}
+              animateBy="words"
+              direction="top"
+              as="h2"
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 font-sans justify-center"
+            />
+          </div>
+          <div className="flex justify-center">
+            <BlurText
+              text="Experience Traviso AI in action."
+              delay={200}
+              animateBy="words"
+              direction="top"
+              className="text-lg md:text-xl text-white/60 font-sans justify-center"
+            />
+          </div>
         </div>
       </div>
       

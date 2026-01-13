@@ -19,7 +19,7 @@ const BeforeFooter = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Grid: 1 column on mobile, 2 columns on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
